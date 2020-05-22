@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:InstantPhotosServer">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!-- Order is important -->
+        <ResourceDictionary Source="Fonts.xaml"/>
+        <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="MaterialDesign.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="TitleText" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="Background" Value="{StaticResource PrimaryHueMidBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+    </Style>
+    
+    <Style TargetType="{x:Type TextBlock}" x:Key="StatusText" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Style.Triggers>
+            <Trigger Property="Text" Value="Offline">
+                <Setter Property="Foreground" Value="Red"/>
+            </Trigger>
+            <Trigger Property="Text" Value="Online">
+                <Setter Property="Foreground" Value="Green"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
